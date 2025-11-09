@@ -43,5 +43,24 @@ We can see user containing 'ankit' is overwritten and it displays 'kundu'. As it
 
 IIFE -> immediately invoke function
 
-Suppose i want 
+Suppose i want this block of code
 
+for(var i=0;i<5;i++){
+  setTimeout(()=>{
+    console.log(i);
+  },2000);
+}
+
+to give an output of - 0 1 2 3 4
+
+So we can use an IIFE function block inside the for loop,'
+
+for(var i=0;i<5;i++){
+  ((i)=>{
+    setTimeout(()=>{
+      console.log(i);
+    },2000);
+  })(i);
+}
+
+Thus by wrapping in closures we can get our desired results.
