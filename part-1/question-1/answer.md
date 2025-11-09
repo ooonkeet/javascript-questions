@@ -8,29 +8,29 @@ To understand this output we need to have a clear idea about
 
 Let's understand this by an example
 
-var user='ankit';
+  var user='ankit';
 
-function change(){
+  function change(){
 
-  var user='kundu';
+    var user='kundu';
 
-}
+  }
 
-console.log(user);
+  console.log(user);
 
 Here, ankit is printed as the variable is not overwritten and the declaration inside function is only valid and can be used if present inside the function.
 
 It can be treated as 2 seperate variables.
 
-let user='ankit';
+  let user='ankit';
 
-if(true){
+  if(true){
 
-  let user='kundu';
+    let user='kundu';
 
-}
+  }
 
-console.log(user);
+  console.log(user);
 
 Here, ankit is printed as the variable is not overwritten and the declaration inside block is only valid and can be used if present inside the block.
 
@@ -40,15 +40,15 @@ block - lines seperated by {}, for loop, function, etc.
 
 Similarly if the same code is used with 'var' tag, we can see,
 
-var user='ankit';
+  var user='ankit';
 
-if(true){
+  if(true){
 
-  var user='kundu';
+    var user='kundu';
 
-}
+  }
 
-console.log(user);
+  console.log(user);
 
 We can see user containing 'ankit' is overwritten and it displays 'kundu'. As it is not inside a function. 
 
@@ -60,32 +60,32 @@ IIFE -> immediately invoke function
 
 Suppose i want this block of code
 
-for(var i=0;i<5;i++){
+  for(var i=0;i<5;i++){
 
-  setTimeout(()=>{
+    setTimeout(()=>{
   
-    console.log(i);
+      console.log(i);
 
-  },2000);
+    },2000);
 
-}
+  }
 
 to give an output of - 0 1 2 3 4
 
 So we can use an IIFE function block inside the for loop,'
 
-for(var i=0;i<5;i++){
+  for(var i=0;i<5;i++){
 
-  ((i)=>{
+    ((i)=>{
 
-    setTimeout(()=>{
+      setTimeout(()=>{
     
-      console.log(i);
+        console.log(i);
     
-    },2000);
+      },2000);
   
-  })(i);
+    })(i);
 
-}
+  }
 
 Thus by wrapping in closures we can get our desired results.
